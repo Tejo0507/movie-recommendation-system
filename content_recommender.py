@@ -5,7 +5,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
-# Load and preprocess data
 zip_file_path = r'E:\movie_recommendation_project\archive (1).zip'
 
 with zipfile.ZipFile(zip_file_path) as archive:
@@ -53,14 +52,13 @@ def combine_features(row):
 
 movies_df['combined_features'] = movies_df.apply(combine_features, axis=1)
 
-# Vectorize combined features with TF-IDF
+# Vectorizing the combined features with TF-IDF
 tfidf = TfidfVectorizer(stop_words='english')
 tfidf_matrix = tfidf.fit_transform(movies_df['combined_features'])
 
-# Compute cosine similarity matrix
+# Computing cosine similarity matrix
 cosine_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
 
-# Build a reverse map of movie title to index for easy lookup
 indices = pd.Series(movies_df.index, index=movies_df['title'].str.lower())
 
 # Recommendation function
@@ -78,10 +76,10 @@ def recommend_movies(title, cosine_sim=cosine_sim):
     recommended_titles = movies_df['title'].iloc[movie_indices].tolist()
     return recommended_titles
 
-# Demonstration example
 if __name__ == "__main__":
     movie_name = "The Dark Knight Rises"
     recommendations = recommend_movies(movie_name)
     print(f"Top 5 recommendations for '{movie_name}':")
     for rec in recommendations:
         print(rec)
+
