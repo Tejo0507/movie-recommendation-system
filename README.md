@@ -32,3 +32,4 @@ Run the Scripts:
    python content_recommender.py
  - To get collaborative filtering recommendations:
    python collaborative_recommender.py
+run these in the terminal like, "python load_movies.py"
