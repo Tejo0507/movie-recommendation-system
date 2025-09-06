@@ -1,10 +1,10 @@
 # movie-recommendation-system
-I built a movie recommendation system in Python that suggests movies based on content features like genre and cast, plus user ratings. It uses TF-IDF vectorization and cosine similarity for content filtering, and user similarity for collaborative filtering.
+I built a movie recommendation system in Python that suggests movies based on user preferences. I used data preprocessing, TF-IDF vectorization, cosine similarity to find similar movies or users, and applied both content-based and collaborative filtering to generate recommendations.
 
 Project Structure:
 
 load_movies.py:
- - This script loads the movie and credits data from the given dataset files (for example, the TMDB dataset). It helps to quickly check and preview the raw data before any processing.
+ - This script loads the movie and credits data from the dataset file. It helps to quickly check and preview the raw data before any processing.
 
 preprocess_movies.py:
  - Here, I clean up and preprocess the loaded movie and credits data. This includes handling missing values and making sure the data is ready for feature extraction and analysis.
